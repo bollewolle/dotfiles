@@ -101,4 +101,5 @@ else
 fi
 
 log_task "Running '${INSTALL_SCRIPT}'"
+chmod +x "${INSTALL_SCRIPT}"
 exec "${INSTALL_SCRIPT}" "$@"
