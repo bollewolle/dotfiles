@@ -12,12 +12,10 @@
 
 [data]
     onepasswordAccount = "tbd"
-
-[data.user]
-    email = {{ $email | quote }}
-    name = {{ $name | quote }}
-    username = {{ $username | quote }}
-    github_username = {{ $github_username | quote }}
+    user_email = {{ $email | quote }}
+    user_name = {{ $name | quote }}
+    user_username = {{ $username | quote }}
+    user_github_username = {{ $github_username | quote }}
 
 [hooks.read-source-state.pre]
     command = ".local/share/chezmoi/.install-password-manager.sh"
