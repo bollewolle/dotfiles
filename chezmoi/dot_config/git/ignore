@@ -1,0 +1,11 @@
+.local/
+
+# MacOS
+
+.DS*Store
+.AppleDouble
+.LSOverride
+Icon
+.*\*
+.Spotlight-V100
+.Trashes

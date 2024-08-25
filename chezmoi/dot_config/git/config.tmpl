@@ -1,0 +1,48 @@
+[user]
+  name = {{ .user.name }}
+  email = {{ .user.email }}
+
+[color]
+  ui = true
+
+[github]
+  user = {{ .user.github_username }}
+
+[core]
+  editor = {{ .editor }}
+
+[help]
+  autocorrect = 1
+
+[pull]
+  rebase = true
+
+[push]
+  default = simple
+
+[init]
+  defaultBranch = main
+
+[safe]
+	directory = *
+
+[user]
+  # from 1password
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICer2t6z3bGruqWRdDpPW2PnG74/HaVf9YfV9Rhy2dCR 
+
+{{ if eq .chezmoi.os "darwin" }}
+[credential]
+  helper = osxkeychain
+{{ end }}
+
+[gpg]
+  format = ssh
+
+{{ if eq .chezmoi.os "darwin" }}
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+  allowedSignersFile = {{ .chezmoi.homeDir }}/.config/git/allowed_signers
+{{ end }}
+
+[commit]
+  gpgsign = true

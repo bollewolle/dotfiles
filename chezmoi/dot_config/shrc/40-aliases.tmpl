@@ -1,0 +1,51 @@
+#!/bin/bash
+alias ls="eza --icons=always"
+alias cat="bat --theme TwoDark --style=plain --paging never"
+alias top="btop"
+# alias codei="code-insiders"
+alias nuke_modules="rm -rf node_modules; npm install; npm prune"
+alias jkill="function _jkill(){ jps -l | grep \$1 | awk '{print \$1}' | xargs kill -9 ; }; _jkill"
+alias mpvr="mpv --script-opts=360plugin-enabled=yes --panscan=1 --geometry=600x600 --volume=100"
+alias docker-recompose="docker compose stop && docker compose rm --force && docker compose pull && docker compose build --no-cache --pull && docker compose up --remove-orphans --force-recreate -d"
+
+fkill() {
+  pid=$(ps -ef | sed 1d | fzf -m --ansi --color fg:-1,bg:-1,hl:46,fg+:40,bg+:233,hl+:46 --color prompt:166,border:46 --height 40% --border=sharp --prompt="➤  " --pointer="➤ " --marker="➤ " | awk '{print $2}')
+
+  if [ "x$pid" != "x" ]; then
+    kill -${1:-9} $pid
+  fi
+}
+
+select_file() {
+  given_file="$1"
+  #fd --type file --follow --hidden --exclude .git | fzf --query="$given_file"
+  fzf --query="$given_file"
+}
+
+encode() {
+  nice -n 19 ffmpeg -i "$1" -vf "fps=30,scale=w=-2:h='min(1920,ih)':sws_flags=spline+accurate_rnd:in_range=tv:out_range=tv" -c:v libx264 -profile:v baseline -level:v 4.2 -colorspace bt709 -color_trc bt709 -color_primaries bt709 -color_range tv -crf 17 -preset slow -tune film -x264-params mvrange=511 -pix_fmt yuv420p -ac 2 -c:a aac -b:a 160k -movflags +faststart "${1%.*}-encoded.${1##*.}"
+}
+
+# Function preman - open man page in Prevew
+preman() {
+    mandoc -T pdf "$(/usr/bin/man -w $@)" | open -fa Preview
+}
+
+# Function xmanpage - Opens yellow man page in seperate window. Added value of Yellow
+#                     man pages are that they are searchable and easy to open another
+#                     man page of any other term in it
+xmanpage() {
+  if [[ -z $2 ]]; then
+    open x-man-page://"$1"
+  else
+    open x-man-page://"$1"/"$2"
+  fi
+}
+
+# alias remapping man to xmanpage function
+alias man xmanpage
+
+# Function closman - Close all accumulated yellow man pages
+closeman() {
+  osascript -e 'tell application "Terminal" to close (every window where name of current settings of every tab contains "Man Page")'
+}

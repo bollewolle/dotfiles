@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# use "echo $XXX" to show current value
+
+# Language related Environment Variables. More info: https://stackoverflow.com/questions/30479607/explain-the-effects-of-export-lang-lc-ctype-and-lc-all
+export LANG='en_US.UTF-8'
+# export LANGUAGE='en_US.UTF-8'
+# export LC_ALL='nl_BE.UTF-8'
+# export LC_CTYPE='nl_BE.UTF-8'
+# export LC_COLLATE='nl_BE.UTF-8'
+# export LC_MESSAGES='nl_BE.UTF-8'

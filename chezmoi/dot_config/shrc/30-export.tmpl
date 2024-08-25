@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# Homebrew
+if [ -f "/usr/local/bin/brew" ]; then
+  export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+fi
+
+if [ -f "/opt/homebrew/bin/brew" ]; then
+  export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+fi
+
+if [ -f "/opt/linuxbrew/bin/brew" ]; then
+  export PATH="/opt/linuxbrew/bin:/opt/linuxbrew/sbin:$PATH"
+fi
+
+# NodeJS
+export PATH="./node_modules/.bin:$PATH"
+
+# Local binaries
+export PATH="./.local/bin/:$PATH"
+
+if [ -d "${HOME}/.local/bin" ]; then
+  export PATH="${HOME}/.local/bin:${PATH}"
+fi
+
+if [ -d "${HOME}/bin" ]; then
+  export PATH="${HOME}/bin:${PATH}"
+fi
+
+if [ -d "${HOME}/bin" ]; then
+  export PATH="${HOME}/bin:${PATH}"
+fi
+
+# add local commands to PATH
+export PATH=./bin:$PATH
+
+export VISUAL="{{ .editor }}"
+export EDITOR="{{ .editor }}"

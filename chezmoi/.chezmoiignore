@@ -1,0 +1,41 @@
+key.txt.age
+README.md
+scripts
+
+{{ if ne .chezmoi.os "linux" }}
+.chezmoiscripts/linux/**
+{{ end }}
+
+{{ if eq .chezmoi.os "linux" }}
+  {{ if eq .chezmoi.osRelease.id "debian" }}
+  {{ else if eq .chezmoi.osRelease.id "ubuntu" }}
+  {{ else if eq .chezmoi.osRelease.id "mint" }}
+  {{ else }}
+.chezmoiscripts/debian/**
+  {{ end }}
+{{ end }}
+
+{{ if ne .chezmoi.os "darwin" -}}
+Library
+.chezmoiscripts/darwin/**
+{{- end }}
+
+{{ if ne .chezmoi.os "windows" -}}
+.chezmoiscripts/windows/**
+AppData
+Documents
+win*
+.wslconfig
+.winget.json
+{{- end }}
+
+{{ if eq .chezmoi.os "windows" -}}
+.config/htop
+.config/mpv
+.config/shrc
+.config/zshrc
+.bash_profile
+.zshrc
+00-determine-installation-type.sh
+Library
+{{- end }}
