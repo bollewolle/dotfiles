@@ -4,12 +4,6 @@
 {{- $username := "bramg" -}}
 {{- $github_username := "bollewolle" -}}
 
-{{- $data := . -}}
-{{- $_ := set $data "host" (default (dict) (get $data "host")) -}}
-{{- $_ := set $data "user" (default (dict) (get $data "user")) -}}
-{{- $_ := set $data "username" (default (dict) (get $data "username")) -}}
-{{- $_ := set $data "github_username" (default (dict) (get $data "github_username")) -}}
-
 [data]
     onepasswordAccount = "tbd"
     user.email = {{ $email | quote }}
