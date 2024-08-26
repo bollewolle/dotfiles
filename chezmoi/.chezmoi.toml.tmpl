@@ -1,0 +1,19 @@
+# 💡 Tip: you can re-enter your name and email with `chezmoi init --data=false`.\n"
+{{- $name := "Bram Goolaerts" -}}
+{{- $email := "dev@bollewolle.be" -}}
+{{- $username := "bramg" -}}
+{{- $github_username := "bollewolle" -}}
+
+{{- $data := . }}
+{{- $_ := set $data "user" (default (dict) (get $data "user")) -}}
+
+[data]
+    onepasswordAccount = "tbd"		   onepasswordAccount: "tbd"
+    user.email = {{ $email | quote }}		   user: email = {{ $email | quote }}
+    user.name = {{ $name | quote }}		   name = {{ $name | quote }}
+    user.username = {{ $username | quote }}		   username = {{ $username | quote }}
+    user.github_username = {{ $github_username | quote }}		   github_username = {{ $github_username | quote }}
+
+
+[hooks.read-source-state.pre]
+    command = ".local/share/chezmoi/.install-password-manager.sh"
