@@ -8,11 +8,11 @@
 {{- $_ := set $data "user" (default (dict) (get $data "user")) -}}
 
 [data]
-    onepasswordAccount = "tbd"		   onepasswordAccount: "tbd"
-    user.email = {{ $email | quote }}		   user: email = {{ $email | quote }}
-    user.name = {{ $name | quote }}		   name = {{ $name | quote }}
-    user.username = {{ $username | quote }}		   username = {{ $username | quote }}
-    user.github_username = {{ $github_username | quote }}		   github_username = {{ $github_username | quote }}
+    onepasswordAccount = "tbd"
+    user.email = {{ $email | quote }}
+    user.name = {{ $name | quote }}
+    user.username = {{ $username | quote }}
+    user.github_username = {{ $github_username | quote }}
 
 
 [hooks.read-source-state.pre]
