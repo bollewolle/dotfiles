@@ -22,7 +22,9 @@ fi
 # shellcheck disable=SC2312
 script_dir="$(cd -P -- "$(dirname -- "$(command -v -- "$0")")" && pwd -P)"
 
-set -- init --source="${script_dir}" --verbose=false --apply "$@"
+echo "Script Directory: ${script_dir}"
+
+set -- init --source="${script_dir}" --verbose=true --apply "$@"
 
 echo "Running 'chezmoi $*'"
 exec "${chezmoi}" "$@"
