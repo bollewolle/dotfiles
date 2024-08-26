@@ -4,18 +4,20 @@
 {{- $username := "bramg" -}}
 {{- $github_username := "bollewolle" -}}
 
+{{/* 
 {{- $data := . }}
 {{- $_ := set $data "host" (default (dict) (get $data "host")) -}}
 {{- $_ := set $data "user" (default (dict) (get $data "user")) -}}
 {{- $_ := set $data "username" (default (dict) (get $data "username")) -}}
 {{- $_ := set $data "github_username" (default (dict) (get $data "github_username")) -}}
+*/}}
 
 [data]
     onepasswordAccount = "tbd"
-    user_email = {{ $email | quote }}
-    user_name = {{ $name | quote }}
-    user_username = {{ $username | quote }}
-    user_github_username = {{ $github_username | quote }}
+    user.email = {{ $email | quote }}
+    user.name = {{ $name | quote }}
+    user.username = {{ $username | quote }}
+    user.github_username = {{ $github_username | quote }}
 
 [hooks.read-source-state.pre]
     command = ".local/share/chezmoi/.install-password-manager.sh"
