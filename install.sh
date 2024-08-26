@@ -14,7 +14,6 @@ if ! chezmoi="$(command -v chezmoi)"; then
   else
     error "To install chezmoi, you must have curl or wget."
   fi
-  echo "Chezmoi Install Script: ${chezmoi_install_script} and bin_dir: ${bin_dir}"
   sh -c "${chezmoi_install_script}" -- -b "${bin_dir}"
   unset chezmoi_install_script bin_dir
 fi
