@@ -15,7 +15,4 @@
     user.github_username = {{ $github_username | quote }}
 
 [hooks.read-source-state.pre]
-    command = "chmod +x .dotfiles/chezmoi/.install-password-manager.sh"
-
-[hooks.read-source-state.pre]
     command = ".dotfiles/chezmoi/.install-password-manager.sh"
