@@ -15,7 +15,10 @@ Darwin)
     brew list 1password-cli &>/dev/null || brew install 1password-cli
     if [[ $(op account list | wc -l) -lt 1 ]]; then
         open -a '1Password'
-        read -p "Loggin to 1Password and enable 1Password-CLI integration. Enter to continue..."
+        read -p "Log into 1Password and enable 1Password-CLI integration. Enter to continue..."
+        echo "Please provide your 1Password account to log in:"
+        read 1pwccount
+        eval $(op signin --account $1pwaccount) 
     fi
     ;;
 Linux)
