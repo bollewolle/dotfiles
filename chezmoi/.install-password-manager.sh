@@ -17,7 +17,7 @@ Darwin)
         open -a '1Password'
         read -p "Log into 1Password and enable 1Password-CLI integration. Enter to continue..."
         echo "Please provide your 1Password account to log in:"
-        read 1pwccount
+        read 1pwaccount
         eval $(op signin --account $1pwaccount) 
     fi
     ;;
