@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # exit immediately if password-manager-binary is already in $PATH
 type password-manager-binary >/dev/null 2>&1 && exit
@@ -17,9 +17,8 @@ Darwin)
         open -a '1Password'
         read -p "Log into 1Password and enable 1Password-CLI integration. Enter to continue..."
     fi
-    echo "Please provide your 1Password account to log in:"
-    read 1pwaccount
-    eval $(op signin --account $1pwaccount)
+    read -p 'Please provide your 1Password account to log in: ' 1pwaccount
+    eval $(op signin --account $(1pwaccount))
     ;;
 Linux)
     echo "Script incomplete to install 1Password, do manually"
