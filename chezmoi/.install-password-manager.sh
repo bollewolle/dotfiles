@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/bin/sh
 
 # exit immediately if password-manager-binary is already in $PATH
-type password-manager-binary >/dev/null 2>&1 && exit
+type op >/dev/null 2>&1 && echo "1password already installed" && exit
 
 case "$(uname -s)" in
 Darwin)
@@ -15,7 +15,13 @@ Darwin)
     brew list 1password-cli &>/dev/null || brew install 1password-cli
     if [[ $(op account list | wc -l) -lt 1 ]]; then
         open -a '1Password'
-        read -p "Log into 1Password and enable 1Password-CLI integration. Enter to continue..."
+        echo "Be sure to setup your account(s) and vault(s) in 1password."
+        echo "Then go to 'Settings > Developer' and enable 'Integrate with 1Password CLI'."
+        echo "Optionally: go to 'Settings > Developer' and enable 'Use the SSH agent"."
+        echo
+        echo "Now run 'op vault list' in your terminal to make sure the cmd line tool works."
+        echo "You will need to authenticate for the 'op' command to work.
+        read -p "Enter to continue..."
     fi
     read -p 'Please provide your 1Password account to log in: ' 1pwaccount
     eval $(op signin --account ${!1pwaccount})
