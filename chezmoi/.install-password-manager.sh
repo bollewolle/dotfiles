@@ -5,6 +5,7 @@ type password-manager-binary >/dev/null 2>&1 && exit
 
 case "$(uname -s)" in
 Darwin)
+    echo "Installing Homebrew and 1Password"
     # commands to install password-manager-binary on Darwin
     if ! command -v brew &>/dev/null; then
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -18,6 +19,7 @@ Darwin)
     fi
     ;;
 Linux)
+    echo "Script incomplete to install 1Password, do manually"
     # commands to install password-manager-binary on Linux
     ;;
 *)

@@ -9,13 +9,13 @@
 
 [data]
     onepasswordAccount = "tbd"
-    editor = "code"
 
 [data.user]
     email = {{ $email | quote }}
     name = {{ $name | quote }}
     username = {{ $username | quote }}
     github_username = {{ $github_username | quote }}
+    editor = "code"
 
 [hooks.read-source-state.pre]
     command = ".dotfiles/chezmoi/.install-password-manager.sh"
