@@ -12,6 +12,8 @@ if ! type nix &>/dev/null; then
     . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
 fi
 
+echo "You are using $CHEZMOI_SOURCE_DIR as Chezmoi source directory."
+
 if [[ -n "${CHEZMOI_SOURCE_DIR}" ]]; then
     . ${CHEZMOI_SOURCE_DIR}/../scripts/installation-type.sh
 else
