@@ -6,12 +6,6 @@ echo "💡 Upgrade all the things..."
 # checking the path
 echo env | grep PATH
 
-# TEST refresh zsh
-exec zsh
-
-# checking the path
-echo env | grep PATH
-
 # chezmoi
 chezmoi upgrade
 
