@@ -6,11 +6,11 @@ if [ ! -f "/usr/local/bin/brew" ] && [ ! -f "/opt/homebrew/bin/brew" ]; then
     NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-if ! type nix &>/dev/null; then
-    echo "❄️ Installing nix..."
-    curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install --no-confirm
-    . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
-fi
+# if ! type nix &>/dev/null; then
+#     echo "❄️ Installing nix..."
+#     curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install --no-confirm
+#     . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+# fi
 
 echo "You are using $CHEZMOI_SOURCE_DIR as Chezmoi source directory."
 
