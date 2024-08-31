@@ -18,7 +18,6 @@ Darwin)
         echo "Be sure to setup your account(s) and vault(s) in 1password."
         echo "Then go to 'Settings > Developer' and enable 'Integrate with 1Password CLI'."
         echo "Optionally: go to 'Settings > Developer' and enable 'Use the SSH agent"."
-        echo
         echo "Now run 'op vault list' in your terminal to make sure the cmd line tool works."
         echo "You will need to authenticate for the 'op' command to work.
         read -p "Enter to continue..."

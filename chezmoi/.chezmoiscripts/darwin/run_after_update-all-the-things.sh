@@ -2,6 +2,16 @@
 # run_after_ scripts are always run in alphabetical order after updating the dotfiles
 # Purpose: Use this script to update everything on your system after the dotfiles have been updated.
 echo "💡 Upgrade all the things..."
+
+# checking the path
+echo env | grep PATH
+
+# TEST refresh zsh
+exec zsh
+
+# checking the path
+echo env | grep PATH
+
 # chezmoi
 chezmoi upgrade
 
