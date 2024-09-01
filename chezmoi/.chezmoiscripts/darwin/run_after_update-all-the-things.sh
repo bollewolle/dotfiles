@@ -3,6 +3,11 @@
 # Purpose: Use this script to update everything on your system after the dotfiles have been updated.
 echo "💡 Upgrade all the things..."
 
+# Install source tooling (e.g. PATH)
+if [[ -n "${CHEZMOI_SOURCE_DIR}" ]]; then
+    . ${CHEZMOI_SOURCE_DIR}/../scripts/source-tooling.sh
+fi
+
 # chezmoi
 chezmoi upgrade
 
