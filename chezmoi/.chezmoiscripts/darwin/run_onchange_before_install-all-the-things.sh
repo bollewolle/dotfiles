@@ -100,6 +100,8 @@ cask "vmware-fusion"
 cask "snagit"
 cask "microsoft-office"
 cask "microsoft-teams"
+EOF
+
 # cask "microsoft-outlook"
 # cask "microsoft-word"
 # cask "microsoft-excel"
@@ -132,7 +134,6 @@ mas "Userscripts", id: 1463298887
 mas "Baking Soda - Tube Cleaner", id: 1601151613
 mas "Vinegar - Tube Cleaner", id: 1591303229
 mas "The Camelizer", id: 1532579087
-EOF
 
     echo "🔧 Checking current default shell..."
     current_shell=$(dscl . -read /Users/$(whoami) UserShell | awk '{print $2}')
