@@ -3,7 +3,7 @@
 # Purpose: Use this script to add packages/software which need to be installed
 if [ ! -f "/usr/local/bin/brew" ] && [ ! -f "/opt/homebrew/bin/brew" ]; then
     echo "🍺 Installing Homebrew..."
-    NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 # if ! type nix &>/dev/null; then
@@ -21,6 +21,12 @@ else
     INSTALLATION_TYPE=workstation
 fi
 
+# Install source tooling (e.g. PATH)
+if [[ -n "${CHEZMOI_SOURCE_DIR}" ]]; then
+    . ${CHEZMOI_SOURCE_DIR}/../scripts/source-tooling.sh
+fi
+
+# Install minimal tooling with Brew
 echo "🔧 Brew: Installing minimal tooling"
 brew bundle --no-lock --file=/dev/stdin <<EOF
 brew "zsh"
@@ -49,6 +55,7 @@ brew "m-cli"
 brew "mas"
 EOF
 
+# Install additional tooling in case of workstation with Brew
 if [ "$INSTALLATION_TYPE" = "workstation" ]; then
     echo "🔧 Brew: Installing workstation tooling"
     brew bundle --force --no-lock --file=/dev/stdin <<EOF
@@ -99,7 +106,7 @@ cask "microsoft-teams"
 # cask "microsoft-powerpoint"
 
 
-# Install apps from the MacOS App Store via mas-cli
+# Install apps from the MacOS App Store in case of workstation via mas-cli
 echo "MacOS App Store apps installation"
 mas "OK JSON", id: 1576121509
 mas "MQTT Explorer", id: 1455214828
@@ -136,6 +143,19 @@ EOF
     else
         echo "🔧 Default shell is already ZSH."
     fi
+
+    echo "🔧 Installing ASDF..."
+    if [ ! -d $HOME/.asdf ]; then
+        echo "💡 Installing asdf..."
+        git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf
+        . "$HOME/.asdf/asdf.sh"
+        asdf update
+    fi
+
+    . "$HOME/.asdf/asdf.sh"
+
+    asdf plugin add nodejs
+    asdf plugin add python
 
 fi
 

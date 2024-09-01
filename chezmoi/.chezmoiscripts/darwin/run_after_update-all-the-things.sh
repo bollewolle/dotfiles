@@ -3,9 +3,6 @@
 # Purpose: Use this script to update everything on your system after the dotfiles have been updated.
 echo "💡 Upgrade all the things..."
 
-# checking the path
-echo env | grep PATH
-
 # chezmoi
 chezmoi upgrade
 
