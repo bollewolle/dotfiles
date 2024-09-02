@@ -1,6 +1,8 @@
 #!/bin/bash
 # run_onchange_before_ scripts are run in alphabetical order before updating the dotfiles and only when the content of the file changes.
 # Purpose: Use this script to add packages/software which need to be installed
+echo "💡 Install all the things..."
+
 if [ ! -f "/usr/local/bin/brew" ] && [ ! -f "/opt/homebrew/bin/brew" ]; then
     echo "🍺 Installing Homebrew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -98,15 +100,19 @@ cask "connectmenow"
 cask "morgen"
 cask "vmware-fusion"
 cask "snagit"
-cask "microsoft-office"
 cask "microsoft-teams"
+cask "microsoft-outlook"
+cask "microsoft-word"
+cask "microsoft-excel"
+cask "microsoft-powerpoint"
 EOF
 
-# cask "microsoft-outlook"
-# cask "microsoft-word"
-# cask "microsoft-excel"
-# cask "microsoft-powerpoint"
+# cask "microsoft-office"
 
+
+# TODO: 
+# - fujitsu-scansnap-home --> requires rosetta to be installed
+# - microsoft-office --> error during install, using separate items instead
 
 # Install apps from the MacOS App Store in case of workstation via mas-cli
 echo "MacOS App Store apps installation"

@@ -88,6 +88,7 @@ elif [ "$(uname -s)" = "Darwin" ]; then
     touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress;
     PROD=$(softwareupdate -l | grep "\*.*Command Line" | tail -n 1 | sed 's/^[^C]* //')
     softwareupdate -i "$PROD" --verbose;
+    /usr/sbin/softwareupdate --install-rosetta --agree-to-license
   else
     log_task "Command Line Tools for Xcode have been installed."
   fi

@@ -3,6 +3,15 @@
 # Purpose: Use this script to update everything on your system after the dotfiles have been updated.
 echo "💡 Upgrade all the things..."
 
+echo "You are using $CHEZMOI_SOURCE_DIR as Chezmoi source directory."
+
+if [[ -n "${CHEZMOI_SOURCE_DIR}" ]]; then
+    . ${CHEZMOI_SOURCE_DIR}/../scripts/installation-type.sh
+else
+    echo "☢️  No installation type set, did you run this script directly? Assuming 'workstation' installation."
+    INSTALLATION_TYPE=workstation
+fi
+
 # Install source tooling (e.g. PATH)
 if [[ -n "${CHEZMOI_SOURCE_DIR}" ]]; then
     . ${CHEZMOI_SOURCE_DIR}/../scripts/source-tooling.sh
