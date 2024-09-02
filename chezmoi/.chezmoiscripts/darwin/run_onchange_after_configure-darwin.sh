@@ -4,8 +4,11 @@
 echo "🔧 Setting a couple of macos defaults..."
 
 # Global System Settings
+## Set Dark mode
+defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark" >> /dev/null
+
 ## Set language and text formats
-defaults write NSGlobalDomain AppleLanguages -array "en" "nl" >> /dev/null
+defaults write NSGlobalDomain AppleLanguages -array "en-BE" "nl-BE" >> /dev/null
 defaults write NSGlobalDomain AppleLocale -string "en_BE@currency=EUR" >> /dev/null
 defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters" >> /dev/null
 defaults write NSGlobalDomain AppleMetricUnits -bool true >> /dev/null
@@ -67,8 +70,8 @@ defaults write com.apple.dock wvous-tr-modifier -int 0 >> /dev/null
 defaults write com.apple.dock wvous-bl-corner -int 14 >> /dev/null
 defaults write com.apple.dock wvous-bl-modifier -int 0 >> /dev/null
 # Bottom right screen corner --> Mission Control
-defaults write com.apple.dock wvous-bl-corner -int 2 >> /dev/null
-defaults write com.apple.dock wvous-bl-modifier -int 0 >> /dev/null
+defaults write com.apple.dock wvous-br-corner -int 2 >> /dev/null
+defaults write com.apple.dock wvous-br-modifier -int 0 >> /dev/null
 
 # Finder
 ## Show Hard Drives on Desktop

@@ -23,7 +23,7 @@ Darwin)
         read -p "Enter to continue..."
     fi
     read -p 'Please provide your 1Password account to log in: ' 1pwaccount
-    eval $(op signin --account $1pwaccount)
+    eval $(op signin --account $(1pwaccount))
     ;;
 Linux)
     echo "Script incomplete to install 1Password, do manually"

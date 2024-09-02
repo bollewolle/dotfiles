@@ -64,6 +64,7 @@ if [ "$INSTALLATION_TYPE" = "workstation" ]; then
 brew "node"
 brew "direnv"
 brew "exiftool"
+cask "prefs-editor"
 cask "1password/tap/1password-cli"
 cask "coconutbattery"
 cask "jordanbaird-ice"
