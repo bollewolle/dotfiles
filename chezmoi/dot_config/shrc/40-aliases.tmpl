@@ -1,11 +1,9 @@
 #!/bin/bash
-# alias ls="eza --icons=always"
+alias ls="eza --icons=always"
 alias cat="bat --theme TwoDark --style=plain --paging never"
 alias top="btop"
-# alias codei="code-insiders"
+alias code="code"
 alias nuke_modules="rm -rf node_modules; npm install; npm prune"
-alias jkill="function _jkill(){ jps -l | grep \$1 | awk '{print \$1}' | xargs kill -9 ; }; _jkill"
-alias mpvr="mpv --script-opts=360plugin-enabled=yes --panscan=1 --geometry=600x600 --volume=100"
 alias docker-recompose="docker compose stop && docker compose rm --force && docker compose pull && docker compose build --no-cache --pull && docker compose up --remove-orphans --force-recreate -d"
 
 fkill() {
