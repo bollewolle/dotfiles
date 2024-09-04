@@ -6,6 +6,7 @@ echo "💡 Install all the things..."
 if [ ! -f "/usr/local/bin/brew" ] && [ ! -f "/opt/homebrew/bin/brew" ]; then
     echo "🍺 Installing Homebrew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    chmod -R go-w "$(brew --prefix)/share"
 fi
 
 # if ! type nix &>/dev/null; then
@@ -108,12 +109,6 @@ cask "microsoft-excel"
 cask "microsoft-powerpoint"
 EOF
 
-# cask "microsoft-office"
-
-
-# TODO: 
-# - fujitsu-scansnap-home --> requires rosetta to be installed
-# - microsoft-office --> error during install, using separate items instead
 
 # Install apps from the MacOS App Store in case of workstation via mas-cli
 echo "MacOS App Store apps installation"
