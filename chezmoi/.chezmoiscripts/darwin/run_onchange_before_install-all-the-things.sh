@@ -100,14 +100,16 @@ cask "hazel"
 cask "fujitsu-scansnap-home"
 cask "connectmenow"
 cask "morgen"
-cask "vmware-fusion"
-cask "snagit"
-cask "microsoft-teams"
-cask "microsoft-outlook"
-cask "microsoft-word"
-cask "microsoft-excel"
-cask "microsoft-powerpoint"
 EOF
+
+# TEMP deactivation for testing purposes
+# cask "vmware-fusion"
+# cask "snagit"
+# cask "microsoft-teams"
+# cask "microsoft-outlook"
+# cask "microsoft-word"
+# cask "microsoft-excel"
+# cask "microsoft-powerpoint"
 
 fi
 
