@@ -2,9 +2,11 @@
 
 DISCLAIMER: These are my dotfiles for bootstrapping a new system. They are tailored to my needs, and may not work for you. Use at your own risk.
 
-## Macos/linux
+## macOS/linux
 
-If you're on a workstation use the below command to initiate the bootstrap script. It will pull the repo and initiate Chezmoi. That in turn will run the necessary script (via a hook) to also install 1Password and the CLI. After that Chezmoi will do it's meant to do with all the defined files, folders, templates, scripts, ...
+For a fresh install of macOS: make sure you use the same username as defined in your Chezmoi data file. Also make sure to already log into the App Store in order to make the app installation via mas-cli work correctly.
+
+If you're on a workstation use the below command to initiate the bootstrap script. It will pull the repo and initiate Chezmoi. That in turn will run the necessary script (via a hook) to also install 1Password and the CLI for 1Password. After that Chezmoi will do what it's meant to do with all the defined files, folders, templates, scripts, ...
 
 Using curl:
 
@@ -41,6 +43,6 @@ in the [Application Order](https://www.chezmoi.io/reference/application-order/) 
     chezmoi -v apply
     chezmoi doctor
 
-Compedit issues:
+In case of Compedit issues:
 
     compaudit | xargs chmod g-w,o-w

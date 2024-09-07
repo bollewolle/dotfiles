@@ -1,3 +1,4 @@
+#!/bin/bash
 # Source tooling
 if [ -f "/usr/local/bin/brew" ]; then
   export PATH="/usr/local/bin:/usr/local/sbin:$PATH"

@@ -29,7 +29,7 @@ if [[ -n "${CHEZMOI_SOURCE_DIR}" ]]; then
     . ${CHEZMOI_SOURCE_DIR}/../scripts/source-tooling.sh
 fi
 
-# Install minimal tooling with Brew
+# Install minimal tooling with Brew Bundle
 echo "🔧 Brew: Installing minimal tooling"
 brew bundle --no-lock --file=/dev/stdin <<EOF
 brew "zsh"
@@ -58,7 +58,7 @@ brew "m-cli"
 brew "mas"
 EOF
 
-# Install additional tooling in case of workstation with Brew
+# Install additional tooling in case of workstation with Brew Bundle
 if [ "$INSTALLATION_TYPE" = "workstation" ]; then
     echo "🔧 Brew: Installing workstation tooling"
     brew bundle --force --no-lock --file=/dev/stdin <<EOF
@@ -109,9 +109,12 @@ cask "microsoft-excel"
 cask "microsoft-powerpoint"
 EOF
 
+fi
 
-# Install apps from the MacOS App Store in case of workstation via mas-cli
-echo "MacOS App Store apps installation"
+# Install additional apps from the MacOS App Store in case of workstation via mas-cli with Brew Bundle
+if [ "$INSTALLATION_TYPE" = "workstation" ]; then
+    echo "🔧 App Store: Installing workstation tooling"
+    brew bundle --force --no-lock --file=/dev/stdin <<EOF
 mas "OK JSON", id: 1576121509
 mas "MQTT Explorer", id: 1455214828
 mas "MindNode", id: 1289197285
@@ -120,7 +123,6 @@ mas "Infuse", id: 1136220934
 mas "Pixelmator Pro", id: 1289583905
 mas "Photomator", id: 1444636541
 mas "Timepage", id: 989178902
-# mas "Home Assistant", id:1099568401
 mas "Airmail", id: 918858936
 mas "Parcel", id: 639968404
 mas "MusicBox", id: 1614730313
@@ -136,6 +138,15 @@ mas "Userscripts", id: 1463298887
 mas "Baking Soda - Tube Cleaner", id: 1601151613
 mas "Vinegar - Tube Cleaner", id: 1591303229
 mas "The Camelizer", id: 1532579087
+EOF
+
+# mas "Home Assistant", id:1099568401
+
+fi
+
+# Finalize installing workstation tooling
+if [ "$INSTALLATION_TYPE" = "workstation" ]; then
+    echo "🔧 Finalize installing workstation tooling"
 
     echo "🔧 Checking current default shell..."
     current_shell=$(dscl . -read /Users/$(whoami) UserShell | awk '{print $2}')
