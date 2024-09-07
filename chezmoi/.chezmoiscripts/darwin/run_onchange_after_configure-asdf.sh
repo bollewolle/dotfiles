@@ -1,6 +1,11 @@
 #!/bin/bash
 echo "🔧 Configure ASDF..."
 
+# Install source tooling (e.g. PATH)
+if [[ -n "${CHEZMOI_SOURCE_DIR}" ]]; then
+    . ${CHEZMOI_SOURCE_DIR}/../scripts/source-tooling.sh
+fi
+
 pushd "$HOME" || exit
 asdf install
 data=$(cat .tool-versions)
