@@ -20,6 +20,12 @@ export PATH="$HOME/.asdf/shims:$PATH"
 # NodeJS
 export PATH="./node_modules/.bin:$PATH"
 
+# Ruby (non-macOS native)
+if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
+  export PATH=/opt/homebrew/opt/ruby/bin:$PATH
+  export PATH=`gem environment gemdir`/bin:$PATH
+fi
+
 # Local binaries
 export PATH="./.local/bin/:$PATH"
 

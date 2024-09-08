@@ -63,6 +63,7 @@ if [ "$INSTALLATION_TYPE" = "workstation" ]; then
     echo "🔧 Brew: Installing workstation tooling"
     brew bundle --force --no-lock --file=/dev/stdin <<EOF
 brew "node"
+brew "ruby"
 brew "direnv"
 brew "exiftool"
 cask "prefs-editor"
