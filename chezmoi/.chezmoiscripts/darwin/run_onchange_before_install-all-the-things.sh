@@ -100,6 +100,8 @@ cask "hazel"
 cask "fujitsu-scansnap-home"
 cask "connectmenow"
 cask "morgen"
+cask "font-roboto-mono-nerd-font"
+cask "font-hack-nerd-font"
 EOF
 
 # TEMP deactivation for testing purposes

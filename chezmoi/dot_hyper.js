@@ -10,7 +10,7 @@ module.exports = {
     // default font size in pixels for all tabs
     fontSize: 13,
     // font family with optional fallbacks
-    fontFamily: '"MonoLisa Nerd Font", MonoLisa, monospace',
+    fontFamily: '"Roboto Mono Nerd Font", "Hack Nerd Font", monospace',
     disableLigatures: false,
     // default font weight: 'normal' or 'bold'
     fontWeight: "normal",
@@ -32,7 +32,8 @@ module.exports = {
     foregroundColor: "#fff",
     // terminal background color
     // opacity is only supported on macOS
-    backgroundColor: "#000",
+    // backgroundColor: "#000", // default Hyper
+    backgroundColor: "#32302f", // override background color for Dracula
     // terminal selection color
     selectionColor: "rgba(248,28,229,0.3)",
     // border color (window, tabs)
@@ -138,8 +139,8 @@ module.exports = {
   //   `hyperpower`
   //   `@company/project`
   //   `project#1.0.1`
-  plugins: [],
-  // plugins: ["hyper-dracula"], #TODO: investigate if this can be added with Chezmoi as well
+  // plugins: [],
+  plugins: ["hyper-dracula"],
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
   // to load it and avoid it being `npm install`ed
