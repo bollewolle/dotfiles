@@ -78,7 +78,6 @@ cask "only-switch"
 cask "postman"
 cask "xld"
 cask "carbon-copy-cloner"
-cask "arq"
 cask "calibre"
 cask "betterdisplay"
 cask "rectangle-pro"
@@ -111,6 +110,9 @@ EOF
 # cask "microsoft-word"
 # cask "microsoft-excel"
 # cask "microsoft-powerpoint"
+
+# TODO Review if needed
+# cask "arq" --> no longer use for?
 
 fi
 
