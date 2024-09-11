@@ -170,7 +170,7 @@ defaults write com.apple.finder FXPreferredViewStyle -string "clmv" >> /dev/null
 
 # After configuring preferred view style, clear all `.DS_Store` files
 # to ensure settings are applied for every directory
-find . -name '.DS_Store' -type f -delete
+# find . -name '.DS_Store' -type f -delete
 
 # Keep folders on top when sorting by name
 # defaults write com.apple.finder _FXSortFoldersFirst -bool true
