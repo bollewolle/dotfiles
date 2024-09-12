@@ -24,7 +24,9 @@ script_dir="$(cd -P -- "$(dirname -- "$(command -v -- "$0")")" && pwd -P)"
 
 echo "Script Directory: ${script_dir}"
 
-set -- init --source="${script_dir}" --working-tree="${script_dir}" --verbose=true --apply "$@"
+set -- init --source="${script_dir}" --verbose=true --apply "$@"
 
 echo "Running 'chezmoi $*'"
+
+# replace current process with chezmoi
 exec "${chezmoi}" "$@"
