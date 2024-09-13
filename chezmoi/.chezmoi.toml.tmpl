@@ -7,7 +7,8 @@
 {{- $data := . }}
 {{- $_ := set $data "user" (default (dict) (get $data "user")) -}}
 
-{{- /* This retains the value passed with --source on chezmoi init, which is used in the ../install.sh script */ -}}
+# This retains the value passed with --source on chezmoi init, which is used in the ../install.sh script
+
 sourceDir = "{{ .chezmoi.workingTree }}"
 
 verbose = true
