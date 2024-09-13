@@ -29,8 +29,12 @@ defaults write NSGlobalDomain AppleMetricUnits -bool true >> /dev/null
 # Set the timezone; see `sudo systemsetup -listtimezones` for other values
 # sudo systemsetup -settimezone "Europe/Brussels" > /dev/null
 
-## Always use exapnded print dialog
-defaults write -g PMPrintingExpandedStateForPrint -bool TRUE >> /dev/null
+
+## Always use exanded print panel
+defaults write -g PMPrintingExpandedStateForPrint -bool true >> /dev/null
+
+## Always use exanded save panel
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 
 ## Enable SSH
 sudo systemsetup -setremotelogin on
@@ -77,9 +81,25 @@ defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int
 # defaults write com.apple.dock orientation bottom #default
 # defaults write com.apple.dock orientation right #right
 
-## Set the icon size of Dock items to 27 pixels
-defaults write com.apple.dock tilesize -int 27 >> /dev/null
+## Set the icon size of Dock items in pixels (default: 36)
+defaults write com.apple.dock tilesize -int 36 >> /dev/null
 # defaults write com.apple.dock tilesize -int ??
+
+## Minimize animation effect
+# Genie       : `genie` (default)
+# Scale       : `scale`
+# Suck        : `suck`
+defaults write com.apple.dock "mineffect" -string "genie" >> /dev/null
+
+## Enable dock magnification (default: false)
+defaults write com.apple.dock magnification -bool true >> /dev/null
+
+## Set dock magnificated icon size.
+defaults write com.apple.dock largesize -int 30 >> /dev/null    
+
+## Only show opened apps in Dock
+## Default "false"
+# defaults write com.apple.dock "static-only" -bool "false" && killall Dock
 
 ## Scroll to Exposé app
 defaults write com.apple.dock scroll-to-open -bool true >> /dev/null
@@ -138,7 +158,7 @@ defaults write com.apple.finder ShowStatusBar -bool true >> /dev/null
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool false >> /dev/null
 
 # Path bar
-defaults write com.apple.finder ShowPathbar -bool true >> /dev/null
+defaults write com.apple.finder ShowPathBar -bool true >> /dev/null
 
 # Text selection in Quick Look
 defaults write com.apple.finder QLEnableTextSelection -bool true >> /dev/null
@@ -221,7 +241,7 @@ defaults write com.apple.finder _FXShowPosixPathInTitle -bool false >> /dev/null
 defaults write com.apple.finder ShowStatusBar -bool true >> /dev/null
 
 # show path bar in Finder windows
-defaults write com.apple.finder ShowPathBar -bool true >> /dev/null
+defaults write com.apple.finder ShowPathbar -bool true >> /dev/null
 ## later versions use "ShowPathbar"
 
 
@@ -231,7 +251,7 @@ defaults write com.apple.finder ShowPathBar -bool true >> /dev/null
 
 # size of Finder sidebar icons, small=1, default=2, large=3
 # (TBD: maybe for Catalina 10.15+ only?)
-defaults write NSGlobalDomain "NSTableViewDefaultSizeMode" -int "1" >> /dev/null
+defaults write NSGlobalDomain "NSTableViewDefaultSizeMode" -int "2" >> /dev/null
 
 
 #================================================
@@ -247,7 +267,7 @@ defaults write com.apple.finder CreateDesktop -bool true >> /dev/null
 # Icons for hard drives, servers, and removable media on the desktop (default: false)
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true >> /dev/null
 defaults write com.apple.finder ShowHardDrivesOnDesktop         -bool true >> /dev/null
-defaults write com.apple.finder ShowMountedServersOnDesktop     -bool true >> /dev/null
+defaults write com.apple.finder ShowMountedServersOnDesktop     -bool false >> /dev/null
 defaults write com.apple.finder ShowRemovableMediaOnDesktop     -bool true >> /dev/null
 
 # Size of icons on the desktop and in other icon views (default: 64)
