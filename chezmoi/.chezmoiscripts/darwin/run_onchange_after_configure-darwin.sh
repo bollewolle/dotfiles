@@ -27,20 +27,20 @@ defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters" >> /de
 defaults write NSGlobalDomain AppleMetricUnits -bool true >> /dev/null
 
 # Set the timezone; see `sudo systemsetup -listtimezones` for other values
-# sudo systemsetup -settimezone "Europe/Brussels" > /dev/null
-
+sudo systemsetup -settimezone "Europe/Brussels" 2>/dev/null 1>&2
 
 ## Always use exanded print panel
 defaults write -g PMPrintingExpandedStateForPrint -bool true >> /dev/null
 
 ## Always use exanded save panel
-defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true >> /dev/null
 
 ## Enable SSH
 sudo systemsetup -setremotelogin on
 
 ## Never go into computer sleep mode
-sudo systemsetup -setcomputersleep Off > /dev/null >> /dev/null
+# sudo systemsetup -setcomputersleep Off > /dev/null >> /dev/null
+# TODO: this command returns an error when running the script in Sonoma
 
 ## Hibernate mode 3: Copy RAM to disk so the system state can still be restored in case of a power failure.
 sudo pmset -a hibernatemode 3 >> /dev/null
@@ -83,7 +83,6 @@ defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int
 
 ## Set the icon size of Dock items in pixels (default: 36)
 defaults write com.apple.dock tilesize -int 36 >> /dev/null
-# defaults write com.apple.dock tilesize -int ??
 
 ## Minimize animation effect
 # Genie       : `genie` (default)
@@ -95,7 +94,7 @@ defaults write com.apple.dock "mineffect" -string "genie" >> /dev/null
 defaults write com.apple.dock magnification -bool true >> /dev/null
 
 ## Set dock magnificated icon size.
-defaults write com.apple.dock largesize -int 30 >> /dev/null    
+defaults write com.apple.dock largesize -int 71 >> /dev/null    
 
 ## Only show opened apps in Dock
 ## Default "false"
@@ -339,59 +338,56 @@ defaults write com.apple.dock wvous-br-modifier -int 0 >> /dev/null
 # *                   SAFARI
 #================================================
 
-# ? NOTE: Many of these don't work anymore, and those that do require Terminal
-# ? to have Full Disk Access (which is tested and set above).
-# ? https://lapcatsoftware.com/articles/containers.html
-# TODO: test each setting if works in Monterey & Big Sur.
+# NOTE: Safari is Sandboxed, the preferences can now be found here:
+# ~/Library/Containers/com.apple.Safari/Data/Library/Preferences/com.apple.Safari.plist
 
-# Delete the old redundant .plist file, the correct location is
-# ~/Library/Containers/com.apple.Safari since Safari 13 in Catalina 10.15
+# NOTE: Many of those that worked before don't work anymore, and those that do require Terminal
+# to have Full Disk Access (which is tested and set above).
+# https://lapcatsoftware.com/articles/containers.html
+# TODO: test each setting if works in Sonoma
 
-# Get Safari Version
-read osx_safari_version osx_safari_version_major osx_safari_version_minor osx_safari_version_patch \
-    <<< $(/usr/libexec/PlistBuddy -c "print :CFBundleShortVersionString" \
-    /Applications/Safari.app/Contents/Info.plist | \
-    awk -F. '{print $0 " " $1 " " $2 " " $3}')
 
-# If Safari 13 or greater, delete outdated redundant pref file from earlier Safari
-if [[ -f ~/Library/Preferences/com.apple.Safari.plist && "$osx_safari_version_major" -ge 13 ]]; then
-    rm ~/Library/Preferences/com.apple.Safari.plist
-fi
+## GENERAL
+# Safari opens with: "All windows from last session"
+defaults write com.apple.Safari AlwaysRestoreSessionAtLaunch -bool true >> /dev/null
 
-# Show status bar
-# defaults write com.apple.Safari ShowStatusBar -bool true
-# ! Doesn't seem to work Safari 15 on macOS Monterey
+# Homepage
+defaults write com.apple.Safari HomePage -string 'about:blank' >> /dev/null
 
-# Show hovering overlay on links
-defaults write com.apple.Safari ShowOverlayStatusBar -bool true #default is false
-# * [x] Does work in Safari 15 on macOS Monterey
+# Open "safe" files after downloading (default: true)
+defaults write com.apple.Safari AutoOpenSafeDownloads -bool false >> /dev/null
 
-# Safari opens with: last session
-defaults write com.apple.Safari AlwaysRestoreSessionAtLaunch -bool true
-# * [x] Does work in Safari 15 on macOS Monterey
-# * [x] Does work in Safari 14.1.2 on macOS Mojave 10.14.6
 
-# Set Safari’s home page to `about:blank` for faster loading
-# defaults write com.apple.Safari HomePage -string "about:blank"
-# ! Doesn't seem to work Safari 15 on macOS Monterey
-# ? [ ] Set manually
+## AUTOFILL
+# Autofill web forms - "Usernames and password" (default: true)
+defaults write com.apple.Safari AutoFillPasswords -bool false >> /dev/null
 
-# Don't open files in Safari after downloading:
-defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
-# * [x] Does work in Safari 15 on macOS Monterey
+
+## ADVANCED
+# Smart Search Field - Show full website address (default: false)
+defaults write com.apple.safari ShowFullURLInSmartSearchField -bool true >> /dev/null
+
+
+
+## VARIOUS
+# Show hovering overlay on links (default: false) (set via "View" menu)
+defaults write com.apple.Safari ShowOverlayStatusBar -bool true >> /dev/null
+
+# Show favorites bar (default: false) (set via "View" menu)
+defaults write com.apple.Safari ShowFavoritesBar-v2 -bool true >> /dev/null
 
 # Show Develop menu in Safari
 # defaults write com.apple.Safari IncludeDevelopMenu -bool true
-# ! Doesn't seem to work Safari 15 on macOS Monterey, as it is now Debug
-# TODO wrap these to test safari version
+# No longer works like this, is now a value within dictionary "PreferencesModulesMinimumWidths"
 
 # Enable Safari’s Debug menu
-defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
+defaults write com.apple.Safari IncludeInternalDebugMenu -bool true >> /dev/null
 # * [x] Does work in Safari 15 on macOS Monterey
+
 
 #================================================
 # *                 SCRIPT MENU
 #================================================
 
 #Enable Script Menu (scripts in ~/Library/Scripts/ will be listed in menu bar)
-defaults write com.apple.scriptmenu.plist ScriptMenuEnabled true
+defaults write com.apple.scriptmenu.plist ScriptMenuEnabled true >> /dev/null
