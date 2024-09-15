@@ -102,16 +102,14 @@ cask "connectmenow"
 cask "morgen"
 cask "font-roboto-mono-nerd-font"
 cask "font-hack-nerd-font"
+cask "vmware-fusion"
+cask "snagit"
+cask "microsoft-teams"
+cask "microsoft-outlook"
+cask "microsoft-word"
+cask "microsoft-excel"
+cask "microsoft-powerpoint"
 EOF
-
-# TEMP deactivation for testing purposes
-# cask "vmware-fusion"
-# cask "snagit"
-# cask "microsoft-teams"
-# cask "microsoft-outlook"
-# cask "microsoft-word"
-# cask "microsoft-excel"
-# cask "microsoft-powerpoint"
 
 # TODO Review if needed
 # cask "arq" --> no longer use for?
@@ -140,11 +138,12 @@ mas "1Password for Safari", id: 1569813296
 mas "Super Agent for Safari", id: 1568262835
 mas "Wipr", id: 1320666476
 mas "Keepa - Price Tracker", id: 1533805339
-mas "StopTheMadness Pro ", id: 2118554294
+mas "StopTheMadness Pro", id: 6471380298
 mas "Userscripts", id: 1463298887
 mas "Baking Soda - Tube Cleaner", id: 1601151613
 mas "Vinegar - Tube Cleaner", id: 1591303229
 mas "The Camelizer", id: 1532579087
+mas "Mastodon", id: 1571998974
 EOF
 
 # mas "Home Assistant", id:1099568401
@@ -180,14 +179,14 @@ if [ "$INSTALLATION_TYPE" = "workstation" ]; then
 
 fi
 
+# TODO: to install manually after clean install
+#   eID Software &  Viewer --> download from website
+#   Epos Connect --> download from website
+#   Logi Options+ --> download from website
+#   Octopus --> download from website
+#   Sleeve --> see 1pw for link
+
 # TODO:
-# Find way to install:
-#   Epos Connect
-#   Sleeve
-#   CoconutBattery
+# Identify if still needed:
 #   Logi Options
-#   Logi Options+
-#   eID Viewer
-#   Mastodon
-#   Octopus
 #   Harmony
