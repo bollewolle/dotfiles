@@ -17,16 +17,14 @@ osascript -e 'tell application "System Preferences" to quit'
 #================================================
 # *           GLOBAL SYSTEM SETTINGS
 #================================================
-## Set Dark mode
-defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark" >> /dev/null
-
+# GENERAL
 ## Set language and text formats
 defaults write NSGlobalDomain AppleLanguages -array "en-BE" "nl-BE" >> /dev/null
 defaults write NSGlobalDomain AppleLocale -string "en_BE@currency=EUR" >> /dev/null
 defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters" >> /dev/null
 defaults write NSGlobalDomain AppleMetricUnits -bool true >> /dev/null
 
-# Set the timezone; see `sudo systemsetup -listtimezones` for other values
+## Set the timezone; see `sudo systemsetup -listtimezones` for other values
 sudo systemsetup -settimezone "Europe/Brussels" 2>/dev/null 1>&2
 
 ## Always use exanded print panel
@@ -50,6 +48,17 @@ sudo pmset -a powernap 1 >> /dev/null
 
 ## Disable lowpowermode
 sudo pmset -a lowpowermode 0 >> /dev/null
+
+# APPEARANCE
+## Set Dark mode
+defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark" >> /dev/null
+
+# SOUND
+## Alert sound
+defaults write NSGlobalDomain com.apple.sound.beep.sound -string "/System/Library/Sounds/Tink.aiff" >> /dev/null
+
+## Play user interface sound effects (default: 1)
+defaults write NSGlobalDomain com.apple.sound.uiaudio.enabled -int 0 >> /dev/null
 
 
 #================================================
@@ -102,6 +111,37 @@ defaults write com.apple.dock largesize -int 71 >> /dev/null
 
 ## Scroll to Exposé app
 defaults write com.apple.dock scroll-to-open -bool true >> /dev/null
+
+
+#================================================
+# *                 HOT CORNERS
+#================================================
+# Hot corners
+# Possible values:
+#  0: no-op
+#  2: Mission Control
+#  3: Show application windows
+#  4: Desktop
+#  5: Start screen saver
+#  6: Disable screen saver
+#  7: Dashboard
+# 10: Put display to sleep
+# 11: Launchpad
+# 12: Notification Center
+# 13: Lockscreen
+# 14: Quick Note
+# Top left screen corner --> Show application windows
+defaults write com.apple.dock wvous-tl-corner -int 3 >> /dev/null
+defaults write com.apple.dock wvous-tl-modifier -int 0 >> /dev/null
+# Top right screen corner --> Desktop
+defaults write com.apple.dock wvous-tr-corner -int 4 >> /dev/null
+defaults write com.apple.dock wvous-tr-modifier -int 0 >> /dev/null
+# Bottom left screen corner --> Quick Note
+defaults write com.apple.dock wvous-bl-corner -int 14 >> /dev/null
+defaults write com.apple.dock wvous-bl-modifier -int 0 >> /dev/null
+# Bottom right screen corner --> Mission Control
+defaults write com.apple.dock wvous-br-corner -int 2 >> /dev/null
+defaults write com.apple.dock wvous-br-modifier -int 0 >> /dev/null
 
 
 #================================================
@@ -301,37 +341,6 @@ defaults write com.apple.finder ShowRemovableMediaOnDesktop     -bool true >> /d
 # "true" to default to iCloud, false to default to home directory
 # (TBD: maybe for Catalina 10.15+ only?)
 # defaults write NSGlobalDomain "NSDocumentSaveNewDocumentsToCloud" -bool "false" 
-
-
-#================================================
-# *                 HOT CORNERS
-#================================================
-# Hot corners
-# Possible values:
-#  0: no-op
-#  2: Mission Control
-#  3: Show application windows
-#  4: Desktop
-#  5: Start screen saver
-#  6: Disable screen saver
-#  7: Dashboard
-# 10: Put display to sleep
-# 11: Launchpad
-# 12: Notification Center
-# 13: Lockscreen
-# 14: Quick Note
-# Top left screen corner --> Show application windows
-defaults write com.apple.dock wvous-tl-corner -int 3 >> /dev/null
-defaults write com.apple.dock wvous-tl-modifier -int 0 >> /dev/null
-# Top right screen corner --> Desktop
-defaults write com.apple.dock wvous-tr-corner -int 4 >> /dev/null
-defaults write com.apple.dock wvous-tr-modifier -int 0 >> /dev/null
-# Bottom left screen corner --> Quick Note
-defaults write com.apple.dock wvous-bl-corner -int 14 >> /dev/null
-defaults write com.apple.dock wvous-bl-modifier -int 0 >> /dev/null
-# Bottom right screen corner --> Mission Control
-defaults write com.apple.dock wvous-br-corner -int 2 >> /dev/null
-defaults write com.apple.dock wvous-br-modifier -int 0 >> /dev/null
 
 
 #================================================
