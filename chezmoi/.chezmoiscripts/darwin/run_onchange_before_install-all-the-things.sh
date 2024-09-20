@@ -109,6 +109,7 @@ cask "microsoft-outlook"
 cask "microsoft-word"
 cask "microsoft-excel"
 cask "microsoft-powerpoint"
+cask "via"
 EOF
 
 # TODO Review if needed
