@@ -2,7 +2,7 @@
 # run_onchange_after_ scripts are run in alphabetical order after updating the dotfiles and only when the content of the file changes.
 # Purpose: Use this script to set various MacOS system defaults after the dotfiles have been updated. See https://macos-defaults.com/ for a good resource. Also see https://apps.tempel.org/PrefsEditor/ as very useful app.
 # Main inspiration: https://gist.github.com/ChristopherA/98628f8cd00c94f11ee6035d53b0d3c6
-# Other inspiractions: https://github.com/kevinSuttle/macOS-Defaults/blob/master/.macos
+# Other inspirations: https://github.com/kevinSuttle/macOS-Defaults/blob/master/.macos
 
 echo "🔧 Setting a couple of macos defaults..."
 

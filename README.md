@@ -46,3 +46,15 @@ in the [Application Order](https://www.chezmoi.io/reference/application-order/) 
 In case of Compedit issues:
 
     compaudit | xargs chmod g-w,o-w
+
+# Inspiration
+
+Biggest inspiration is the [dotfiles of benc](https://github.com/benc/dotfiles), of which I really liked the approach taken. It allows to keep a great overview, while not making it too complex and yet allowing for a lot of flexibility (e.g. still possible to make differences per device if wanted).
+
+Also the [dotfiles of twpayne](https://github.com/twpayne/dotfiles), the creator of Chezmoi, are regularly checked. If it's by the creator then it can't be a bad approach, right?
+
+For the Chezmoi config itself there were a lot of other inspirations, just use the search on Github and you'll find so many great configs to learn from.
+
+The main inspiration for what I added in the "configure-darwin" script is this one: https://gist.github.com/ChristopherA/98628f8cd00c94f11ee6035d53b0d3c6. And another one is https://github.com/kevinSuttle/macOS-Defaults/blob/master/.macos.
+
+A huge thanks to all these people, especially for making their configs available, thanks so much!
