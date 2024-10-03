@@ -104,6 +104,7 @@ cask "morgen"
 cask "font-roboto-mono-nerd-font"
 cask "font-hack-nerd-font"
 cask "vmware-fusion"
+cask "utm"
 cask "snagit"
 cask "microsoft-teams"
 cask "microsoft-outlook"
@@ -187,6 +188,7 @@ fi
 #   Logi Options+ --> download from website
 #   Octopus --> download from website
 #   Sleeve --> see 1pw for link
+#   Stop The Mac App Store --> https://github.com/lapcat/StopTheMacAppStore
 
 # TODO:
 # Identify if still needed:
