@@ -149,6 +149,7 @@ mas "Baking Soda - Tube Cleaner", id: 1601151613
 mas "Vinegar - Tube Cleaner", id: 1591303229
 mas "The Camelizer", id: 1532579087
 mas "Mastodon", id: 1571998974
+mas "Masked Email Manager", id: 6443853807
 EOF
 
 # mas "Home Assistant", id:1099568401
