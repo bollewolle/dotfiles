@@ -47,6 +47,24 @@ In case of Compedit issues:
 
     compaudit | xargs chmod g-w,o-w
 
+## 1Password CLI
+
+Documentation on 1Password CLI can be found here: https://developer.1password.com/docs/cli
+
+Some usefull commands:
+
+    # list all document stores
+    op document list
+
+    # create new document
+    op document create [{ <file> | - }] [flags]
+
+    # update existing document
+    op document edit { <itemName> | <itemID> } [{ <file> | - }] [flags]
+
+    # get content of existing document
+    op document get { <itemName> | <itemID> } [flags]
+
 # Inspiration
 
 Biggest inspiration is the [dotfiles of benc](https://github.com/benc/dotfiles), of which I really liked the approach taken. It allows to keep a great overview, while not making it too complex and yet allowing for a lot of flexibility (e.g. still possible to make differences per device if wanted).
