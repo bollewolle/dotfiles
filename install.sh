@@ -29,4 +29,4 @@ set -- init --source="${script_dir}" --verbose=true --apply "$@"
 echo "Running 'chezmoi $*'"
 
 # replace current process with chezmoi
-exec "${chezmoi}" "$@"
+PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/opt/linuxbrew/bin:/opt/linuxbrew/sbin:$PATH" exec "${chezmoi}" "$@"
