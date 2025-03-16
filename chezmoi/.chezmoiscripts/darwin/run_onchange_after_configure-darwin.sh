@@ -4,6 +4,32 @@
 # Main inspiration: https://gist.github.com/ChristopherA/98628f8cd00c94f11ee6035d53b0d3c6
 # Other inspirations: https://github.com/kevinSuttle/macOS-Defaults/blob/master/.macos
 
+if [[ -n "${CHEZMOI_SOURCE_DIR}" ]]; then
+    . ${CHEZMOI_SOURCE_DIR}/../scripts/installation-type.sh
+else
+    echo "☢️  No installation type set, did you run this script directly? Set INSTALLATION_TYPE using an env var if needed."
+fi
+
+if [[ -n "${CHEZMOI_SOURCE_DIR}" ]]; then
+    . ${CHEZMOI_SOURCE_DIR}/../scripts/source-tooling.sh
+fi
+
+darwin_check_full_disk_access() {
+  if [ "$(uname -s)" = "Darwin" ]; then
+    if ! plutil -lint /Library/Preferences/com.apple.TimeMachine.plist >/dev/null ; then
+      echo "This script requires your terminal app to have Full Disk Access. Add this terminal to the Full Disk Access list in System Preferences > Security & Privacy, quit the app, and re-run this script."
+      open 'x-apple.systempreferences:com.apple.preference.security?Privacy_AllFiles'
+      exit 1
+    else
+      echo "Your terminal has Full Disk Access"
+    fi
+  fi
+}
+
+darwin_check_full_disk_access
+
+sudo -v
+
 echo "🔧 Setting a couple of macos defaults..."
 
 #================================================
@@ -33,8 +59,16 @@ defaults write -g PMPrintingExpandedStateForPrint -bool true >> /dev/null
 ## Always use exanded save panel
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true >> /dev/null
 
-## Enable SSH
+# Enable SSH for admins
 sudo systemsetup -setremotelogin on
+if ! dseditgroup com.apple.access_ssh &> /dev/null; then
+  dseditgroup -o create -q com.apple.access_ssh
+fi
+sudo dseditgroup -o edit -a admin -t group com.apple.access_ssh
+
+# Enable ARD for admins
+sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart \
+  -activate -configure -access -on -users admin -privs -all -restart -agent -menu
 
 ## Never go into computer sleep mode
 # sudo systemsetup -setcomputersleep Off > /dev/null >> /dev/null
@@ -50,8 +84,14 @@ sudo pmset -a powernap 1 >> /dev/null
 sudo pmset -a lowpowermode 0 >> /dev/null
 
 # APPEARANCE
-## Set Dark mode
-defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark" >> /dev/null
+# >>> Specific settings for workstation/server <<<
+if [ "$INSTALLATION_TYPE" = "server" ] || [ "$INSTALLATION_TYPE" = "workstation" ]; then
+  # Require password immediately after sleep or screen saver begins
+  # defaults write com.apple.screensaver askForPasswordDelay -int 0 >> /dev/null
+
+  # Dark mode
+  defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark" >> /dev/null
+fi
 
 # SOUND
 ## Alert sound
@@ -143,6 +183,7 @@ defaults write com.apple.dock wvous-bl-modifier -int 0 >> /dev/null
 defaults write com.apple.dock wvous-br-corner -int 2 >> /dev/null
 defaults write com.apple.dock wvous-br-modifier -int 0 >> /dev/null
 
+killall Dock
 
 #================================================
 # *               FINDER GENERAL
@@ -152,7 +193,7 @@ defaults write com.apple.dock wvous-br-modifier -int 0 >> /dev/null
 # defaults write com.apple.finder DisableAllAnimations -bool true
 
 # File extension change warning
-# defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false >> /dev/null
 
 # Avoid creating .DS_Store files on network or USB volumes
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true >> /dev/null
@@ -229,7 +270,7 @@ defaults write com.apple.finder FXPreferredViewStyle -string "clmv" >> /dev/null
 
 # After configuring preferred view style, clear all `.DS_Store` files
 # to ensure settings are applied for every directory
-# find . -name '.DS_Store' -type f -delete
+find . -name '.DS_Store' -type f -delete
 
 # Keep folders on top when sorting by name
 # defaults write com.apple.finder _FXSortFoldersFirst -bool true
@@ -283,6 +324,8 @@ defaults write com.apple.finder ShowStatusBar -bool true >> /dev/null
 defaults write com.apple.finder ShowPathbar -bool true >> /dev/null
 ## later versions use "ShowPathbar"
 
+# Always show icon in the titlebar
+defaults write com.apple.universalaccess "showWindowTitlebarIcons" -bool "true" >> /dev/null
 
 #================================================
 # *              FINDER SIDE BAR
@@ -332,6 +375,7 @@ defaults write com.apple.finder ShowRemovableMediaOnDesktop     -bool true >> /d
 /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy kind" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy kind" ~/Library/Preferences/com.apple.finder.plist
 
+killall Finder
 
 #================================================
 # *             FILEVIEWER DIALOG
@@ -393,6 +437,7 @@ defaults write com.apple.Safari ShowFavoritesBar-v2 -bool true >> /dev/null
 defaults write com.apple.Safari IncludeInternalDebugMenu -bool true >> /dev/null
 # * [x] Does work in Safari 15 on macOS Monterey
 
+killall Safari
 
 #================================================
 # *                 SCRIPT MENU
