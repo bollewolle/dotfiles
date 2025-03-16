@@ -123,7 +123,7 @@ cask "wifiman" # unifi wifi manager
 
 # system tooling
 cask "jordanbaird-ice" # macos menubar manager
-ask "latest" # latest version of apps
+cask "latest" # latest version of apps
 cask "connectmenow" # mount network shares
 cask "carbon-copy-cloner" # backup tool
 cask "sdformatter" # sd card formatter
