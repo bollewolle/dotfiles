@@ -31,7 +31,7 @@ fi
 
 # Install minimal tooling with Brew Bundle
 echo "🔧 Brew: Installing minimal tooling"
-brew bundle --no-lock --file=/dev/stdin <<EOF
+brew bundle --no-upgrade --force --file=/dev/stdin <<EOF
 brew "zsh"
 brew "eza"
 brew "bat"
@@ -61,7 +61,7 @@ EOF
 # Install additional tooling in case of workstation with Brew Bundle
 if [ "$INSTALLATION_TYPE" = "workstation" ]; then
     echo "🔧 Brew: Installing workstation tooling"
-    brew bundle --force --no-lock --file=/dev/stdin <<EOF
+    brew bundle --no-upgrade --force --file=/dev/stdin <<EOF
 brew "node"
 brew "ruby"
 brew "direnv"
@@ -125,7 +125,7 @@ fi
 # Install additional apps from the MacOS App Store in case of workstation via mas-cli with Brew Bundle
 if [ "$INSTALLATION_TYPE" = "workstation" ]; then
     echo "🔧 App Store: Installing workstation tooling"
-    brew bundle --force --no-lock --file=/dev/stdin <<EOF
+    brew bundle --no-upgrade --force --file=/dev/stdin <<EOF
 mas "OK JSON", id: 1576121509
 mas "MQTT Explorer", id: 1455214828
 mas "MindNode", id: 1289197285
