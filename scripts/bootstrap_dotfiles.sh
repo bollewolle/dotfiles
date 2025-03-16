@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 set -eu
 
 log_color() {
@@ -66,6 +66,63 @@ git_clean() {
   unset path remote branch git
 }
 
+read_env() {
+  env_file="${HOME}/.env"
+  if [ -f "$env_file" ]; then
+    log_task "Reading environment variables from '$env_file'"
+    set -a
+    # shellcheck source=${HOME}/.env
+    . "$env_file"
+    set +a
+  else
+    echo "Choose the type of installation you want for this machine"
+    select INSTALLATION_TYPE in minimal regular server workstation
+    do
+        if [[ -n "$INSTALLATION_TYPE" ]]; then
+            break
+        else
+            echo "Invalid selection. Please try again."
+        fi
+    done
+    printf "INSTALLATION_TYPE=%s\n" "$INSTALLATION_TYPE" >> "$env_file"
+
+    echo "Do you want secrets to be applied to this machine"
+    select APPLY_SECRETS in true false
+    do
+        if [[ -n "$APPLY_SECRETS" ]]; then
+            break
+        else
+            echo "Invalid selection. Please try again."
+        fi
+    done
+    printf "APPLY_SECRETS=%s\n" "$APPLY_SECRETS" >> "$env_file"
+
+    log_task "Created .env file with INSTALLATION_TYPE=$INSTALLATION_TYPE and APPLY_SECRETS=$APPLY_SECRETS"
+    
+    chmod 600 "$env_file"
+    
+    set -a
+    # shellcheck source=${HOME}/.env
+    . "$env_file"
+    set +a
+  fi
+}
+
+darwin_check_full_disk_access() {
+  if [ "$(uname -s)" = "Darwin" ]; then
+    if ! plutil -lint /Library/Preferences/com.apple.TimeMachine.plist >/dev/null ; then
+      log_error "This script requires your terminal app to have Full Disk Access. Add this terminal to the Full Disk Access list in System Preferences > Security & Privacy, quit the app, and re-run this script."
+      open 'x-apple.systempreferences:com.apple.preference.security?Privacy_AllFiles'
+      exit 1
+    else
+      log_task "Your terminal has Full Disk Access"
+    fi
+  fi
+}
+
+darwin_check_full_disk_access
+read_env
+
 DOTFILES_REPO_HOST=${DOTFILES_REPO_HOST:-"https://github.com"}
 DOTFILES_USER=${DOTFILES_USER:-"bollewolle"}
 DOTFILES_REPO="${DOTFILES_REPO_HOST}/${DOTFILES_USER}/dotfiles"
@@ -88,7 +145,6 @@ elif [ "$(uname -s)" = "Darwin" ]; then
     touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress;
     PROD=$(softwareupdate -l | grep "\*.*Command Line" | tail -n 1 | sed 's/^[^C]* //')
     softwareupdate -i "$PROD" --verbose;
-    /usr/sbin/softwareupdate --install-rosetta --agree-to-license
   else
     log_task "Command Line Tools for Xcode have been installed."
   fi

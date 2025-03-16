@@ -15,3 +15,5 @@ fi
 if command -v brew &> /dev/null; then
   eval "$(brew shellenv)"
 fi
+
+export PATH="${HOME}/.local/bin:$PATH"

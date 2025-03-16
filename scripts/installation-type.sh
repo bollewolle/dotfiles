@@ -1,9 +1,20 @@
 #!/bin/bash
 export INSTALLATION_TYPE
+export APPLY_SECRETS
 export MACHINE_TYPE
 export IS_WSL
 
-INSTALLATION_TYPE=workstation
+if [ -f "$HOME/.env" ]; then
+  echo "Reading environment variables from '$HOME/.env'"
+  set -a
+  . "$HOME/.env"
+  set +a
+else
+  echo "No .env file found in home directory, running with defaults..."
+fi
+
+INSTALLATION_TYPE=${INSTALLATION_TYPE:-"minimal"}
+APPLY_SECRETS=${APPLY_SECRETS:-"false"}
 MACHINE_TYPE=unknown
 IS_WSL=false
 MACHINE_TYPE_STRING=unknown
