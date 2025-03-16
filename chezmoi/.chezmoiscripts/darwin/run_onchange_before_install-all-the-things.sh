@@ -171,19 +171,6 @@ if [ "$INSTALLATION_TYPE" = "workstation" ]; then
         echo "🔧 Default shell is already ZSH."
     fi
 
-    echo "🔧 Installing ASDF..."
-    if [ ! -d $HOME/.asdf ]; then
-        echo "💡 Installing asdf..."
-        git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf
-        . "$HOME/.asdf/asdf.sh"
-        asdf update
-    fi
-
-    . "$HOME/.asdf/asdf.sh"
-
-    asdf plugin add nodejs
-    asdf plugin add python
-
 fi
 
 # TODO: to install manually after clean install

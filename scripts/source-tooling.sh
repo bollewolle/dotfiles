@@ -15,7 +15,3 @@ fi
 if command -v brew &> /dev/null; then
   eval "$(brew shellenv)"
 fi
-
-if [ -f "$HOME/.asdf/asdf.sh" ]; then
-  source "$HOME/.asdf/asdf.sh"
-fi
