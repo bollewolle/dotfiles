@@ -12,6 +12,10 @@ if [ -f "/opt/linuxbrew/bin/brew" ]; then
   export PATH="/opt/linuxbrew/bin:/opt/linuxbrew/sbin:$PATH"
 fi
 
+if [ -f "/opt/linuxbrew/bin/mise" ]; then
+  eval "$(mise activate zsh)"
+fi
+
 if command -v brew &> /dev/null; then
   eval "$(brew shellenv)"
 fi

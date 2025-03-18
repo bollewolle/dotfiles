@@ -1,9 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env zsh
 if (( ${+commands[direnv]} )); then
   eval "$(direnv hook zsh)"
 fi
 
 if (( ${+commands[zoxide]} )); then
+  export _ZO_EXCLUDE_DIRS="$HOME:$HOME/.local/*:$HOME/.var/*:/Volumes/*"
   eval "$(zoxide init zsh)"
 fi
 
@@ -15,13 +16,10 @@ if (( ${+commands[sheldon]} )); then
   eval "$(sheldon source)"
 fi
 
-if (( ${+commands[navi]} )); then
-  eval "$(navi widget zsh)"
-
-  # navi repo add https://github.com/denisidoro/cheats
-  # navi repo add https://github.com/denisidoro/navi-tldr-pages
+if (( ${+commands[mise]} )); then
+  eval "$(mise activate zsh)"
 fi
 
-if (( ${+commands[sheldon]} )); then
-  eval "$(sheldon source)"
+if [ -d "${HOME}/.orbstack" ]; then
+  source ${HOME}/.orbstack/shell/init.zsh 2>/dev/null || :
 fi

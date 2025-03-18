@@ -12,9 +12,12 @@
 #     INSTALLATION_TYPE=workstation
 # fi
 
-# if [[ -n "${CHEZMOI_SOURCE_DIR}" ]]; then
-#     . ${CHEZMOI_SOURCE_DIR}/../scripts/source-tooling.sh
-# fi
+if [[ -n "${CHEZMOI_SOURCE_DIR}" ]]; then
+    . ${CHEZMOI_SOURCE_DIR}/../scripts/source-tooling.sh
+fi
+
+bat cache --build
+mise install && mise prune --yes
 
 echo "💡 Upgrade all the things..."
 chezmoi upgrade

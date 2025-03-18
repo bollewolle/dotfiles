@@ -16,6 +16,10 @@ if [ -f "/opt/linuxbrew/bin/brew" ]; then
   export PATH="/opt/linuxbrew/bin:/opt/linuxbrew/sbin:$PATH"
 fi
 
+# bat
+if [ -r "$(brew --prefix bat)" ]; then
+  export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
+fi
 
 # NodeJS
 export PATH="./node_modules/.bin:$PATH"
@@ -40,3 +44,7 @@ export PATH=./bin:$PATH
 
 export VISUAL="{{ .user.editor }}"
 export EDITOR="{{ .user.editor }}"
+
+if [ -d "/Applications/Carbon Copy Cloner.app" ]; then
+  export PATH=/Applications/Carbon\ Copy\ Cloner.app/Contents/MacOS/:$PATH
+fi

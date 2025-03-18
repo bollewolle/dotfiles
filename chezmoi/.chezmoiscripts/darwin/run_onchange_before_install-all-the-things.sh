@@ -212,8 +212,8 @@ cask "orbstack" # docker desktop replacement
 
 # virtualization
 cask "utm" # virtualization
-cask "vmware-fusion"
-cask "virtualbuddy"
+cask "vmware-fusion" # virtualization
+cask "virtualbuddy" # virtualization
 
 # media
 brew "exiftool" # image metadata tool

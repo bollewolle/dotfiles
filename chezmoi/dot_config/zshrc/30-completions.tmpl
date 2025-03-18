@@ -6,6 +6,10 @@ if (( ${+commands[brew]} )); then
 fi
 {{ end -}}
 
+if (( ${+commands[mise]} )); then
+  eval "$(mise completion zsh)"
+fi
+
 if (( ${+commands[pipenv]} )); then
   eval "$(_PIPENV_COMPLETE=zsh_source pipenv)"
 fi
@@ -20,4 +24,8 @@ fi
 
 if (( ${+commands[op]} )); then
     eval "$(op completion zsh)"
+fi
+
+if (( ${+commands[pixi]} )); then
+  eval "$(pixi completion --shell zsh)"
 fi
