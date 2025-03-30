@@ -2,6 +2,11 @@
 node = 'lts'
 python = ['3.12','3.13','miniconda3-latest']
 java = ['temurin-17','temurin-21']
+uv = ['latest']
 
 [settings]
 env_file = '.env'
+experimental = true
+not_found_auto_install = true
+
+status.missing_tools = 'always'
