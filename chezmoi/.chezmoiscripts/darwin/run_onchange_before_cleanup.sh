@@ -12,5 +12,6 @@ if ! command -v brew &> /dev/null; then
   exit 0
 fi
 
-# E.g. remove from brew if no longer used
-# brew remove xxx || true
+# use brew proper
+brew remove 1password/tap/1password-cli || true
+brew untap 1password/tap || true
