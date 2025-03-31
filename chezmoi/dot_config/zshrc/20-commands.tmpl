@@ -1,8 +1,4 @@
 #!/usr/bin/env zsh
-if (( ${+commands[direnv]} )); then
-  eval "$(direnv hook zsh)"
-fi
-
 if (( ${+commands[zoxide]} )); then
   export _ZO_EXCLUDE_DIRS="$HOME:$HOME/.local/*:$HOME/.var/*:/Volumes/*"
   eval "$(zoxide init zsh)"

@@ -1,23 +1,9 @@
 #!/usr/bin/env bash
-if type direnv &>/dev/null; then
-    eval "$(direnv hook bash)"
-fi
-
 if type zoxide &>/dev/null; then
-    eval "$(zoxide init bash)"
+  export _ZO_EXCLUDE_DIRS="$HOME:$HOME/.local/*:$HOME/.var/*:/Volumes/*"
+  eval "$(zoxide init bash)"
 fi
 
-if type starship &>/dev/null; then
-    eval "$(starship init bash)"
-fi
-
-if type navi &>/dev/null; then
-    eval "$(navi widget bash)"
-
-    # navi repo add https://github.com/denisidoro/cheats
-    # navi repo add https://github.com/denisidoro/navi-tldr-pages
-fi
-
-if type pixi &>/dev/null; then
-    eval "$(pixi completion --shell bash)"
+if [ -d "${HOME}/.orbstack" ]; then
+  source ${HOME}/.orbstack/shell/init.bash 2>/dev/null || :
 fi

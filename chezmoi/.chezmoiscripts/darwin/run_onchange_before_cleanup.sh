@@ -12,6 +12,12 @@ if ! command -v brew &> /dev/null; then
   exit 0
 fi
 
+# use mise
+brew remove asdf
+rm -rf ~/.asdf
+brew remove direnv || true
+brew remove uv pipx pixi || true
+
 # nope
 brew remove "windsurf" || true
 brew remove "cursor" || true
@@ -21,9 +27,3 @@ brew remove "visual-studio-code@insiders" || true
 # use brew proper
 brew remove 1password/tap/1password-cli || true
 brew untap 1password/tap || true
-
-# use mise
-brew remove asdf
-rm -rf ~/.asdf
-brew remove direnv
-brew remove uv pipx pixi

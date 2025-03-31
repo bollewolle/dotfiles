@@ -17,7 +17,7 @@ if [[ -n "${CHEZMOI_SOURCE_DIR}" ]]; then
 fi
 
 bat cache --build
-mise install && mise prune --yes
+# mise install && mise prune --yes
 
 echo "💡 Upgrade all the things..."
 chezmoi upgrade
