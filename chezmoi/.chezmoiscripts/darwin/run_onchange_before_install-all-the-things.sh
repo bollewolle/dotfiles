@@ -184,6 +184,7 @@ mas "Mindnode", id: 1289197285 # mind mapping
 mas "Mindnode Next", id: 6446116532 # mind mapping
 mas "News Explorer", id: 1032670789 # news reader
 mas "StopTheMadness Pro", id: 6471380298 # sanitize safari https://underpassapp.com/StopTheMadness/
+mas "ChangeTheHeaders", id: 6743129567 # modify headers in Safari
 mas "Parcel", id: 639968404 # package tracker
 
 # finance
