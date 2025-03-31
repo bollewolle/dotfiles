@@ -170,6 +170,7 @@ cask "whatsapp"
 cask "telegram"
 cask "discord"
 cask "signal"
+cask "threema@beta"
 
 # social media
 mas "Mastodon", id: 1571998974 # mastodon client
