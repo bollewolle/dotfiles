@@ -124,6 +124,8 @@ cask "via" # qmk manager
 cask "wifiman" # unifi wifi manager
 
 # system tooling
+brew "cmake" # build system
+brew "pkgconf" # pkg-config replacement
 cask "jordanbaird-ice" # macos menubar manager
 cask "latest" # latest version of apps
 cask "connectmenow" # mount network shares
@@ -254,11 +256,7 @@ cask "vscodium@insiders" # code editor
 mas "OK JSON", id: 1576121509 # json viewer
 cask "postman"
 
-# python development
-brew "pixi" # package manager
-brew "pipx" # python package manager
-brew "uv" # python package manager
-brew "direnv" # env manager
+# python development - managed by mise
 
 # home automation
 cask "home-assistant" # home automation

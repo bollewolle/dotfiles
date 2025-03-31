@@ -21,3 +21,9 @@ brew remove "visual-studio-code@insiders" || true
 # use brew proper
 brew remove 1password/tap/1password-cli || true
 brew untap 1password/tap || true
+
+# use mise
+brew remove asdf
+rm -rf ~/.asdf
+brew remove direnv
+brew remove uv pipx pixi
