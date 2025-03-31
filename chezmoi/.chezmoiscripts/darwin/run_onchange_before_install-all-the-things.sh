@@ -98,7 +98,7 @@ if [ "$APPLY_SECRETS" = "true" ] || [ "$INSTALLATION_TYPE" = "regular" ] || [ "$
     brew bundle --no-upgrade --force --file=/dev/stdin <<EOF
 # 1password
 cask "1password" # 1password
-cask "1password/tap/1password-cli" # 1password cli
+cask "1password-cli" # 1password cli
 mas "1Password for Safari", id: 1569813296 # 1password safari extension
 EOF
     # TODO check if op ... is configured correcly, if not, exit script and ask user to configure, then run bootstrap again
