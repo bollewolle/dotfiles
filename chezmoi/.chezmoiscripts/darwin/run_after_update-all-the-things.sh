@@ -37,3 +37,4 @@ if [ "$INSTALLATION_TYPE" = "server" ] || [ "$INSTALLATION_TYPE" = "workstation"
 fi
 
 topgrade || true
+brew reinstall librewolf --no-quarantine
