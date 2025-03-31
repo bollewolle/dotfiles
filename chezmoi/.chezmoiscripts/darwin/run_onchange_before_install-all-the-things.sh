@@ -133,7 +133,7 @@ cask "betterdisplay" # display manager
 cask "rectangle-pro" # window manager
 cask "appcleaner" # app uninstaller
 cask "prefs-editor" # macos prefs editor
-cask "visual-studio-code" # code editor
+cask "vscodium" # code editor
 cask "pacifist" # multi-tool for working with macos package files
 cask "setapp" # app subscription
 cask "ulbow" # log viewer
@@ -249,7 +249,7 @@ if [ "$INSTALLATION_TYPE" = "workstation" ]; then
 brew "devcontainer" # dockerize dev env
 brew "gh" # github cli
 cask "zed" # code editor
-cask "visual-studio-code@insiders" # code editor
+cask "vscodium@insiders" # code editor
 mas "OK JSON", id: 1576121509 # json viewer
 cask "postman"
 
