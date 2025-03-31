@@ -85,6 +85,8 @@ brew "topgrade" # update all the things
 brew "neovim" # text editor
 brew "neofetch" # system info
 cask "ghostty" # terminal
+cask "keka" # file archiver
+cask "applite" # homebrew gui
 cask "hyper" # terminal
 cask "font-hack-nerd-font" # standalone nerd font
 cask "font-roboto-mono-nerd-font" # standalone nerd font
