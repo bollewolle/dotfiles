@@ -23,6 +23,7 @@ brew remove "windsurf" || true
 brew remove "cursor" || true
 brew remove "visual-studio-code" || true
 brew remove "visual-studio-code@insiders" || true
+brew remove "vscodium@insiders" || true
 
 # use brew proper
 brew remove 1password/tap/1password-cli || true

@@ -252,7 +252,6 @@ if [ "$INSTALLATION_TYPE" = "workstation" ]; then
 brew "devcontainer" # dockerize dev env
 brew "gh" # github cli
 cask "zed" # code editor
-cask "vscodium@insiders" # code editor
 mas "OK JSON", id: 1576121509 # json viewer
 cask "postman"
 
