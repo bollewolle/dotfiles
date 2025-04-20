@@ -293,6 +293,7 @@ mas "Vinegar - Tube Cleaner", id: 1591303229
 mas "The Camelizer", id: 1532579087
 mas "StopTheMadness Pro", id: 6471380298 # sanitize safari https://underpassapp.com/StopTheMadness/
 mas "ChangeTheHeaders", id: 6743129567 # modify headers in Safari
+mas "Redirect Web for Safari", id: 1571283503 # redirect URLs
 
 # various
 mas "Paprika Recipe Manager 3", id: 1303222628 # recipe manager
