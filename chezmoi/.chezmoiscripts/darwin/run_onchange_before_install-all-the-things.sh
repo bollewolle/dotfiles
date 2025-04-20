@@ -188,8 +188,6 @@ cask "firefox" # browser
 mas "Mindnode", id: 1289197285 # mind mapping
 mas "Mindnode Next", id: 6446116532 # mind mapping
 mas "News Explorer", id: 1032670789 # news reader
-mas "StopTheMadness Pro", id: 6471380298 # sanitize safari https://underpassapp.com/StopTheMadness/
-mas "ChangeTheHeaders", id: 6743129567 # modify headers in Safari
 mas "Parcel", id: 639968404 # package tracker
 
 # finance
@@ -286,13 +284,15 @@ cask "plex-media-player" # media player
 cask "spotify" # music streaming
 mas "MusicBox", id: 1614730313 # save music for later
 
-# safari extentions
+# safari extensions
 mas "Super Agent for Safari", id: 1568262835
 mas "Wipr", id: 1662217862
 mas "Userscripts", id: 1463298887
 mas "Baking Soda - Tube Cleaner", id: 1601151613
 mas "Vinegar - Tube Cleaner", id: 1591303229
 mas "The Camelizer", id: 1532579087
+mas "StopTheMadness Pro", id: 6471380298 # sanitize safari https://underpassapp.com/StopTheMadness/
+mas "ChangeTheHeaders", id: 6743129567 # modify headers in Safari
 
 # various
 mas "Paprika Recipe Manager 3", id: 1303222628 # recipe manager
