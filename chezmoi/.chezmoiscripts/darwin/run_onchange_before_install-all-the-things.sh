@@ -288,7 +288,7 @@ mas "MusicBox", id: 1614730313 # save music for later
 
 # safari extentions
 mas "Super Agent for Safari", id: 1568262835
-mas "Wipr", id: 1320666476
+mas "Wipr", id: 1662217862
 mas "Userscripts", id: 1463298887
 mas "Baking Soda - Tube Cleaner", id: 1601151613
 mas "Vinegar - Tube Cleaner", id: 1591303229
