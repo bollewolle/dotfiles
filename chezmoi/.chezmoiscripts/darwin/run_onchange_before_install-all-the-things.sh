@@ -124,6 +124,7 @@ cask "via" # qmk manager
 cask "wifiman" # unifi wifi manager
 
 # system tooling
+brew "mise" # version manager 
 brew "cmake" # build system
 brew "pkgconf" # pkg-config replacement
 cask "jordanbaird-ice" # macos menubar manager
@@ -207,7 +208,6 @@ fi
 if [ "$INSTALLATION_TYPE" = "server" ] || [ "$INSTALLATION_TYPE" = "workstation" ]; then
     echo "🔧 Installing server tooling..."
     brew bundle --no-upgrade --force --file=/dev/stdin <<EOF
-brew "mise" # version manager 
 
 # docker tooling
 brew "dive" # docker container image explorer
