@@ -1,6 +1,63 @@
 {
-  "debug.javascript.defaultRuntimeExecutable": {
-    "pwa-node": "/Users/bramg/.local/share/mise/shims/node"
+  /* Git */
+  "git.enableSmartCommit": true,
+
+  /* Editor */
+  "editor.wordWrap": "on",
+  "editor.formatOnSave": true,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode", // to use Prettier as default formatter
+  // "editor.defaultFormatter": "dbaeumer.vscode-eslint", // to use ESLint as default formatter
+  "editor.language.brackets": [],
+
+  /* Workbench */
+  "workbench.colorTheme": "Monokai Pro",
+  "workbench.iconTheme": "Monokai Pro Icons",
+
+  /* Files */
+  "files.autoSave": "onFocusChange",
+
+  /* Terminal */
+  "terminal.integrated.tabs.enabled": true,
+
+  /* TODO Highlight */
+  "todohighlight.isCaseSensitive": true,
+  "todohighlight.keywords": [
+    {
+      "text": "FIXME",
+      "color": "#333",
+      "backgroundColor": "#e67e22"
+    },
+    {
+      "text": "BUG",
+      "color": "#333",
+      "backgroundColor": "#e74c3c"
+    },
+    {
+      "text": "TODO",
+      "color": "#333",
+      "backgroundColor": "#2ecc71"
+    }
+  ],
+
+  /* ESLint */
+  // Adjust editor.defaultFormatter if you want ESLint to be the default formatter
+  "python.defaultInterpreterPath": "/usr/bin/python3",
+  "eslint.codeAction.disableRuleComment": {
+    "enable": true,
+    "location": "separateLine"
   },
-  "python.defaultInterpreterPath": "/Users/bramg/.local/share/mise/installs/python/3.12.10/bin/python"
+  "eslint.alwaysShowStatus": true,
+  "eslint.validate": ["javascript", "javascriptreact", "vue"],
+
+  /* Sass */
+  "sass.andStared": ["active", "focus", "hover", "nth-child"],
+  "git.enableSmartCommit": true,
+  "github.copilot.advanced": {
+    "authProvider": "github"
+  },
+  "mise.binPath": "/opt/homebrew/bin/mise",
+  "debug.javascript.defaultRuntimeExecutable": {
+    "pwa-node": "node"
+  }
 }
