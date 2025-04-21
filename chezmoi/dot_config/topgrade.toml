@@ -15,10 +15,10 @@
 # sudo_command = "sudo"
 
 # Disable specific steps - same options as the command line flag
-disable = ["chezmoi", "containers", "pnpm", "yarn", "mas", "pixi", "git_repos", "uv"]
+disable = ["chezmoi", "containers", "pnpm", "yarn", "mas", "pixi", "git_repos", "uv", "nix"]
 
 # Ignore failures for these steps
-ignore_failures = ["brew_cask", "nix"]
+ignore_failures = ["brew_cask"]
 
 # List of remote machines with Topgrade installed on them
 # remote_topgrades = ["toothless", "pi", "parnas"]
