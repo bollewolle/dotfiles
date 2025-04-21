@@ -93,7 +93,7 @@ cask "font-roboto-mono-nerd-font" # standalone nerd font
 cask "font-readex-pro" 
 EOF
 
-if [ "$APPLY_SECRETS" = "true" ] || [ "$INSTALLATION_TYPE" = "regular" ] || [ "$INSTALLATION_TYPE" = "workstation" ]; then
+if [ "$INSTALLATION_TYPE" = "regular" ] || [ "$INSTALLATION_TYPE" = "workstation" ]; then
     echo "🔧 Installing 1Password"
     brew bundle --no-upgrade --force --file=/dev/stdin <<EOF
 # 1password
@@ -101,6 +101,9 @@ cask "1password" # 1password
 cask "1password-cli" # 1password cli
 mas "1Password for Safari", id: 1569813296 # 1password safari extension
 EOF
+fi
+
+if [ "$APPLY_SECRETS" = "true" ]; then
     # TODO check if op ... is configured correcly, if not, exit script and ask user to configure, then run bootstrap again
     op_account_size="$(op account list --format=json | jq -r '. | length')"
 
