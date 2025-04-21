@@ -1,5 +1,8 @@
 .local/
 
+## VSCode/VSCodium workspace settings
+.vscode/
+
 ## MacOS
 # General
 .DS_Store
