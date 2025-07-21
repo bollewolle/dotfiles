@@ -296,7 +296,6 @@ cask "jaikoz" # music tag editor
 cask "xld" # musice ripper
 cask "plex" # media server
 cask "plex-media-player" # media player
-cask "spotify" # music streaming
 mas "MusicBox", id: 1614730313 # save music for later
 
 # safari extensions
@@ -313,6 +312,12 @@ mas "Redirect Web for Safari", id: 1571283503 # redirect URLs
 # various
 mas "Paprika Recipe Manager 3", id: 1303222628 # recipe manager
 EOF
+
+# Special Case - Spotify # music streaming
+brew uninstall --cask spotify 
+brew cleanup 
+launchctl remove com.spotify.client.startuphelper
+brew install --cask spotify
 fi
 
 # TODO: to install manually after clean install
