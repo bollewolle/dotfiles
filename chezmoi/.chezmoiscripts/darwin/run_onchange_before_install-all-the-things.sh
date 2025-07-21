@@ -199,9 +199,6 @@ mas "Mindnode Next", id: 6446116532 # mind mapping
 mas "News Explorer", id: 1032670789 # news reader
 mas "Parcel", id: 639968404 # package tracker
 
-# automation
-mas "Home Assistant", id: 1099568401 # hass ui
-
 # ai
 cask "lm-studio"
 
