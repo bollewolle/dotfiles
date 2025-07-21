@@ -240,6 +240,9 @@ brew "exiftool" # image metadata tool
 cask "hazel"
 cask "fujitsu-scansnap-home" # scanner manager
 
+# ai
+brew "mlx" # apple silicon array framework
+
 # development tooling
 cask "beyond-compare" # file comparison
 cask "tower" # git client
