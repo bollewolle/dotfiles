@@ -260,6 +260,7 @@ fi
 if [ "$INSTALLATION_TYPE" = "workstation" ]; then
     echo "🔧 Installing xcode..."
     mas install 497799835 # xcode
+    mas install 899247664 # testflight
 
     echo "🔧 Installing workstation tooling..."
     brew bundle --no-upgrade --force --file=/dev/stdin <<EOF
