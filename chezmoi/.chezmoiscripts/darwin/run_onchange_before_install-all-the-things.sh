@@ -199,6 +199,9 @@ mas "Mindnode Next", id: 6446116532 # mind mapping
 mas "News Explorer", id: 1032670789 # news reader
 mas "Parcel", id: 639968404 # package tracker
 
+# automation
+mas "Home Assistant", id: 1099568401 # hass ui
+
 # finance
 cask "tradingview" # stock trading
 mas "Keepa - Price Tracker", id: 1533805339 # amazon price tracker
