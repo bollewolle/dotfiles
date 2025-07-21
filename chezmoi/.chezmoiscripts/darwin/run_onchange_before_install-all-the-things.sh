@@ -131,7 +131,8 @@ cask "via" # qmk manager
 cask "wifiman" # unifi wifi manager
 
 # system tooling
-brew "mise" # version manager 
+brew "mise" # version manager
+brew "cosign" # used by mise to check binaries
 brew "cmake" # build system
 brew "pkgconf" # pkg-config replacement
 cask "jordanbaird-ice" # macos menubar manager
