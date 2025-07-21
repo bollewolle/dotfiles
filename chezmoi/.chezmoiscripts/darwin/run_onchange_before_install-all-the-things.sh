@@ -202,6 +202,9 @@ mas "Parcel", id: 639968404 # package tracker
 # automation
 mas "Home Assistant", id: 1099568401 # hass ui
 
+# ai
+cask "lm-studio"
+
 # finance
 cask "tradingview" # stock trading
 mas "Keepa - Price Tracker", id: 1533805339 # amazon price tracker
