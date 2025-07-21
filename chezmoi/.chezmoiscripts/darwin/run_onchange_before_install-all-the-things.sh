@@ -196,7 +196,6 @@ cask "microsoft-teams" # video conferencing
 cask "firefox" # browser
 mas "Mindnode", id: 1289197285 # mind mapping
 mas "Mindnode Next", id: 6446116532 # mind mapping
-mas "News Explorer", id: 1032670789 # news reader
 mas "Parcel", id: 639968404 # package tracker
 
 # ai
