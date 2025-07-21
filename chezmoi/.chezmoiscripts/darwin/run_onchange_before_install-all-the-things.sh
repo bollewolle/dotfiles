@@ -120,6 +120,10 @@ echo "🔧 Installing the essentials..."
 brew bundle --no-upgrade --force --file=/dev/stdin <<EOF
 brew "lazygit" # git ui
 
+# quicklook plugins
+cask "apparency" # quicklook for apps https://www.mothersruin.com/software/Apparency/
+cask "qlvideo" # quicklook for video files
+
 # drivers
 cask "soundsource" # system audio manager
 cask "coconutbattery" # battery health monitor
