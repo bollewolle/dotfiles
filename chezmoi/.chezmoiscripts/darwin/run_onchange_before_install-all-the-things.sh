@@ -288,7 +288,6 @@ mas "Masked Email Manager", id: 6443853807 # fastmail masked email manager
 
 # file management
 cask "find-any-file" # file search
-cask "forklift" # file manager
 
 # media
 cask "jaikoz" # music tag editor
