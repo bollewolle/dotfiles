@@ -28,3 +28,6 @@ brew remove "vscodium@insiders" || true
 # use brew proper
 brew remove 1password/tap/1password-cli || true
 brew untap 1password/tap || true
+
+# old parcel
+sudo mas uninstall 639968404 || true
