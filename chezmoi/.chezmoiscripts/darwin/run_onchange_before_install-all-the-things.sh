@@ -312,11 +312,11 @@ mas "Paprika Recipe Manager 3", id: 1303222628 # recipe manager
 EOF
 
 # Special Case - Spotify # music streaming
-brew uninstall --cask spotify 
-brew cleanup 
-launchctl remove com.spotify.client.startuphelper
-brew install --cask spotify
-fi
+# brew uninstall --cask spotify 
+# brew cleanup 
+# launchctl remove com.spotify.client.startuphelper
+# brew install --cask spotify
+# fi
 
 # TODO: to install manually after clean install
 #   eID Software &  Viewer --> download from website
